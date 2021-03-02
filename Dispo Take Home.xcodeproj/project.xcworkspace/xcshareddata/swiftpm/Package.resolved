@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
+        "state": {
+          "branch": null,
+          "revision": "2a10bf41da75599a9f8e872dbd44fe0155a2e00c",
+          "version": "5.15.8"
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/snapkit/snapkit.git",
+        "state": {
+          "branch": null,
+          "revision": "328b53b7e3d3d0f32d03adaf7c84297a7310cdf5",
+          "version": "5.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
