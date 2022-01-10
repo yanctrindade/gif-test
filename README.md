@@ -1,6 +1,6 @@
 # iOS Take Home
 
-Create an iOS app with two views, `MainViewController` and `DetailViewController`. The `MainViewController` contains a list of GIFs from the [Giphy API](https://developers.giphy.com/).
+Create an iOS app with two views, `MainViewController` and `DetailViewController`. The `MainViewController` contains a list of GIFs from the [Giphy API](https://developers.giphy.com/). Please do not use SwiftUI.
 
 When there is no query, the view should display the featured (trending) gifs. When there is a query, it should display the search results from the API.
 
