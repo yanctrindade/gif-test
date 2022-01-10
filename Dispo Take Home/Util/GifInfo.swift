@@ -4,7 +4,7 @@ struct GifInfo {
   var id: String
   var gifUrl: URL
   var text: String
-  var shares: Int
   var backgroundColor: UIColor?
-  var tags: [String]
+  var source_tld: String
+  var rating: String
 }
