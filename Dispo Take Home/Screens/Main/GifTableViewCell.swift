@@ -45,7 +45,7 @@ class GifTableViewCell: UITableViewCell {
     }
 
     func setup(with viewModel: GifTableViewCellViewModel) {
-        imageView?.kf.setImage(with: viewModel.url)
+        //imageView?.kf.setImage(with: viewModel.url)
         textLabel?.text = viewModel.title
     }
 }

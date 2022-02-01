@@ -59,6 +59,7 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator.mainToDetail(searchResult: viewModel.selectedGif(indexPath: indexPath))
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
