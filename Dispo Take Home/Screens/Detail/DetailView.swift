@@ -15,14 +15,13 @@ class DetailView: UIView {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
         return imageView
     }()
     
     let infoLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.text = "Text Information"
+        label.text = "Loading ..."
         label.textAlignment = .center
         return label
     }()
@@ -70,9 +69,8 @@ extension DetailView: RenderViewProtocol {
         
         infoLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(24)
-            make.centerX.equalTo(imageView.snp.centerX)
-            make.right.equalTo(self).offset(24)
-            make.left.equalTo(self).offset(-24)
+            make.right.equalTo(self).offset(-24)
+            make.left.equalTo(self).offset(24)
         }
     }
     

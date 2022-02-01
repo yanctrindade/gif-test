@@ -23,6 +23,12 @@ class MainView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "search gifs..."
+        return searchBar
+    }()
+
 }
 
 extension MainView: RenderViewProtocol {

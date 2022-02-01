@@ -20,12 +20,17 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.titleView = searchBar
         setupTableView()
+        setupSearchBar()
         viewModel.getData()
         viewModel.dataFound = { [weak self] in
             self?.refreshData()
         }
+    }
+    
+    private func setupSearchBar() {
+        navigationItem.titleView = uiController.searchBar
+        uiController.searchBar.delegate = self
     }
     
     private func setupTableView() {
@@ -37,13 +42,6 @@ class MainViewController: UIViewController {
     func refreshData() {
         uiController.tableView.reloadData()
     }
-    
-    private lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "search gifs..."
-        searchBar.delegate = self
-        return searchBar
-    }()
 
 }
 
@@ -51,7 +49,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // TODO: implement
+        print(searchText)
     }
 }
 
