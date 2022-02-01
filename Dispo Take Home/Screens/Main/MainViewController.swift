@@ -49,7 +49,14 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        viewModel.searchText = searchText
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
+        self.perform(#selector(self.reload), with: nil, afterDelay: 0.5)
+    }
+    
+    @objc func reload() {
+        print("search method called")
+        viewModel.searchGifByText()
     }
 }
 

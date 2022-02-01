@@ -88,4 +88,40 @@ class GifAPIClient {
         
         task.resume()
     }
+    
+    public func searchGifByText(_ text: String, completion: @escaping (_ result: Result<[GifObject]>) -> Void) {
+        
+        guard let requestURL = URL(string: "search?api_key=\(Constants.giphyApiKey)&q=\(text)&limit=25&lang=en&rating=pg", relativeTo: baseURL) else {
+            return
+        }
+        
+        let request = URLRequest(url: requestURL)
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            
+            if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .useDefaultKeys
+                    
+                    let response = try decoder.decode(APIListResponse.self, from: data)
+                    
+                    DispatchQueue.main.async {
+                        completion(.success(response.data))
+                    }
+                    
+                } catch {
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
+                    }
+                }
+            } else if let error = error {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }
+        
+        task.resume()
+    }
 }
