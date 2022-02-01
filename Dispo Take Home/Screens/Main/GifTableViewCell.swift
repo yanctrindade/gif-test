@@ -29,6 +29,7 @@ class GifTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         textLabel?.numberOfLines = 0
+        imageView?.contentMode = .scaleAspectFit
     }
     
     required init?(coder: NSCoder) {
@@ -44,8 +45,17 @@ class GifTableViewCell: UITableViewCell {
         imageView?.image = nil
     }
 
-    func setup(with viewModel: GifTableViewCellViewModel) {
-        //imageView?.kf.setImage(with: viewModel.url)
+    func setup(with viewModel: GifTableViewCellViewModel, myCompletionHandler: @escaping ((UIImage)->())) {
+        let resource = ImageResource(downloadURL: viewModel.url)
+        imageView?.kf.setImage(with: resource, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { result in
+            switch result {
+            case .success(let imageResult):
+                print(imageResult.image)
+                myCompletionHandler(imageResult.image)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
         textLabel?.text = viewModel.title
     }
 }

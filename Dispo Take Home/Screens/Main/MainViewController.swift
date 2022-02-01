@@ -48,6 +48,7 @@ class MainViewController: UIViewController {
 // MARK: UISearchBarDelegate
 
 extension MainViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchText = searchText
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
@@ -55,8 +56,11 @@ extension MainViewController: UISearchBarDelegate {
     }
     
     @objc func reload() {
-        print("search method called")
         viewModel.searchGifByText()
+    }
+    
+    func reloadRows(indexPath: IndexPath) {
+        uiController.tableView.reloadRows(at: [indexPath], with: .fade)
     }
 }
 
@@ -83,11 +87,14 @@ extension MainViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GifTableViewCell.reuseIdentifier, for: indexPath) as? GifTableViewCell else {
             fatalError("Failed to dequeue ImageTableViewCell")
         }
-        cell.setup(with: GifTableViewCellViewModel(gif: viewModel.gifs[indexPath.row]))
+        cell.setup(with: GifTableViewCellViewModel(gif: viewModel.gifs[indexPath.row])) { image in
+            self.reloadRows(indexPath: indexPath)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel.CELL_HEIGHT
     }
+    
 }
