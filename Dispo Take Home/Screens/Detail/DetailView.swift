@@ -42,10 +42,10 @@ class DetailView: UIView {
             let height = CGFloat(truncating: heightFormatter)
             
             imageView.snp.remakeConstraints() { make in
-                make.centerY.equalTo(self).offset(-100)
-                make.centerX.equalTo(self)
                 make.height.equalTo(height)
                 make.width.equalTo(width)
+                make.centerX.equalTo(self)
+                make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(24)
             }
             super.updateConstraints()
         }
@@ -61,7 +61,7 @@ extension DetailView: RenderViewProtocol {
     
     func setupConstraints() {
         imageView.snp.makeConstraints { make in
-            make.centerY.equalTo(self).offset(-100)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.centerX.equalTo(self)
             make.height.equalTo(100)
             make.width.equalTo(100)

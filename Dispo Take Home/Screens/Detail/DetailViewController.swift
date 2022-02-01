@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
         viewModel.updateUI = { [weak self] in
             self?.updateUI()
         }
+        navigationItem.title = "Gif Info Details"
     }
     
     func updateUI() {

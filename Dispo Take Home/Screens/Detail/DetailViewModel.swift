@@ -33,13 +33,13 @@ class DetailViewModel {
     func getGifInfo()-> String? {
         var content: String?
         if let title = gifFound?.title {
-            content = "title: \(title)"
+            content = "Title: \(title)"
         }
         if let source_tld = gifFound?.source_tld {
-            content?.append("\n\nsource_tld: \(source_tld)")
+            content?.append("\n\nSource: \(source_tld)")
         }
         if let rating = gifFound?.rating {
-            content?.append("\n\nrating: \(rating)")
+            content?.append("\n\nRating: \(rating)")
         }
         return content
     }

@@ -30,6 +30,7 @@ class GifTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         textLabel?.numberOfLines = 0
         imageView?.contentMode = .scaleAspectFit
+        imageView?.clipsToBounds = true
     }
     
     required init?(coder: NSCoder) {
@@ -50,7 +51,6 @@ class GifTableViewCell: UITableViewCell {
         imageView?.kf.setImage(with: resource, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { result in
             switch result {
             case .success(let imageResult):
-                print(imageResult.image)
                 myCompletionHandler(imageResult.image)
             case .failure(let error):
                 print(error.localizedDescription)
