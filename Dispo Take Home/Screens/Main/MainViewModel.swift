@@ -27,4 +27,9 @@ class MainViewModel {
             }
         }
     }
+    
+    func selectedGif(indexPath: IndexPath)-> SearchResult {
+        let gifSelected = gifs[indexPath.row]
+        return SearchResult(id: gifSelected.id, gifUrl: gifSelected.url, title: gifSelected.title)
+    }
 }

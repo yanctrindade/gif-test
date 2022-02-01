@@ -28,8 +28,10 @@ class AppCoordinator {
         window.makeKeyAndVisible()
     }
     
-    func mainToDetail() {
-        //TODO: implement method
+    func mainToDetail(searchResult: SearchResult) {
+        let viewModel = DetailViewModel(searchResult: searchResult)
+        let detailVC = DetailViewController(viewModel: viewModel)
+        presenter.pushViewController(detailVC, animated: true)
     }
     
 }

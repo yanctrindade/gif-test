@@ -8,5 +8,39 @@
 import Foundation
 
 class DetailViewModel {
-    init() {}
+    let apiClient = GifAPIClient()
+    let gifId: String
+    var updateUI: (() -> ())?
+    
+    var gifFound: GifObject?
+    
+    init(searchResult: SearchResult) {
+        gifId = searchResult.id
+    }
+    
+    func getGifById() {
+        apiClient.getGifById(gifId) { [weak self] result in
+            switch result {
+            case .success(let gif):
+                self?.gifFound = gif
+                self?.updateUI?()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getGifInfo()-> String? {
+        var content: String?
+        if let title = gifFound?.title {
+            content = "title: \(title)"
+        }
+        if let source_tld = gifFound?.source_tld {
+            content?.append("\n\nsource_tld: \(source_tld)")
+        }
+        if let rating = gifFound?.rating {
+            content?.append("\n\nrating: \(rating)")
+        }
+        return content
+    }
 }

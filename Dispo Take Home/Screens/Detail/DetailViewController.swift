@@ -3,8 +3,10 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var uiController: DetailView
+    var viewModel: DetailViewModel
     
-    init(searchResult: SearchResult) {
+    init(viewModel: DetailViewModel) {
+        self.viewModel = viewModel
         uiController = DetailView()
         super.init(nibName: nil, bundle: nil)
     }
@@ -19,6 +21,17 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.getGifById()
+        viewModel.updateUI = { [weak self] in
+            self?.updateUI()
+        }
+    }
+    
+    func updateUI() {
+        uiController.imageView.kf.setImage(with: viewModel.gifFound?.images.fixed_height.url)
+        uiController.updateImageViewConstraints(widthStr: viewModel.gifFound?.images.fixed_height.width,
+                                                heightStr: viewModel.gifFound?.images.fixed_height.height)
+        uiController.infoLabel.text = viewModel.getGifInfo()
     }
     
 }

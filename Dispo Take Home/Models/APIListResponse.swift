@@ -1,5 +1,9 @@
 import UIKit
 
+struct APIObjectResponse: Codable {
+  var data: GifObject
+}
+
 struct APIListResponse: Codable {
   var data: [GifObject]
 }

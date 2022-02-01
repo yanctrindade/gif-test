@@ -14,6 +14,7 @@
 		8FC885FA27A8E6B90071AF80 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC885F927A8E6B90071AF80 /* DetailView.swift */; };
 		8FC885FE27A8E6DB0071AF80 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC885FD27A8E6DB0071AF80 /* DetailViewModel.swift */; };
 		8FC8860327A984240071AF80 /* GifTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC8860227A984240071AF80 /* GifTableViewCell.swift */; };
+		8FC8860627A9B1B80071AF80 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC8860527A9B1B80071AF80 /* UIViewController+Extensions.swift */; };
 		9A829F02277D7CF7002C03F2 /* APIListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A829F01277D7CF7002C03F2 /* APIListResponse.swift */; };
 		FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B425EECD340029E28F /* AppDelegate.swift */; };
 		FF9415BB25EECD350029E28F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BA25EECD350029E28F /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		8FC885F927A8E6B90071AF80 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8FC885FD27A8E6DB0071AF80 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		8FC8860227A984240071AF80 /* GifTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifTableViewCell.swift; sourceTree = "<group>"; };
+		8FC8860527A9B1B80071AF80 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		9A829F01277D7CF7002C03F2 /* APIListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIListResponse.swift; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9415B425EECD340029E28F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		8FC8860427A9B1A40071AF80 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8FC8860527A9B1B80071AF80 /* UIViewController+Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		FF9415A825EECD340029E28F = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 				8FC885F627A8E4F30071AF80 /* Protocols */,
 				8FC8860127A8EF6C0071AF80 /* Screens */,
 				FF9415EC25EEEA560029E28F /* Util */,
+				8FC8860427A9B1A40071AF80 /* Extension */,
 				FF9415BA25EECD350029E28F /* Assets.xcassets */,
 				FF9415BF25EECD350029E28F /* LaunchScreen.storyboard */,
 				FF9415C225EECD350029E28F /* Info.plist */,
@@ -261,6 +272,7 @@
 				FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */,
 				FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */,
 				FF9415D225EED25A0029E28F /* DetailViewController.swift in Sources */,
+				8FC8860627A9B1B80071AF80 /* UIViewController+Extensions.swift in Sources */,
 				9A829F02277D7CF7002C03F2 /* APIListResponse.swift in Sources */,
 				8FC885FE27A8E6DB0071AF80 /* DetailViewModel.swift in Sources */,
 				8FC885F327A89A3C0071AF80 /* MainViewModel.swift in Sources */,

@@ -59,6 +59,10 @@ extension MainViewController: UISearchBarDelegate {
 
 extension MainViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator.mainToDetail(searchResult: viewModel.selectedGif(indexPath: indexPath))
+    }
+    
 }
 
 //MARK: UITableViewDataSource
