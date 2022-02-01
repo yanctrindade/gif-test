@@ -13,6 +13,7 @@
 		8FC885F827A8E51A0071AF80 /* RenderViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC885F727A8E51A0071AF80 /* RenderViewProtocol.swift */; };
 		8FC885FA27A8E6B90071AF80 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC885F927A8E6B90071AF80 /* DetailView.swift */; };
 		8FC885FE27A8E6DB0071AF80 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC885FD27A8E6DB0071AF80 /* DetailViewModel.swift */; };
+		8FC8860327A984240071AF80 /* GifTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC8860227A984240071AF80 /* GifTableViewCell.swift */; };
 		9A829F02277D7CF7002C03F2 /* APIListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A829F01277D7CF7002C03F2 /* APIListResponse.swift */; };
 		FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B425EECD340029E28F /* AppDelegate.swift */; };
 		FF9415BB25EECD350029E28F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BA25EECD350029E28F /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		8FC885F727A8E51A0071AF80 /* RenderViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderViewProtocol.swift; sourceTree = "<group>"; };
 		8FC885F927A8E6B90071AF80 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8FC885FD27A8E6DB0071AF80 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		8FC8860227A984240071AF80 /* GifTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifTableViewCell.swift; sourceTree = "<group>"; };
 		9A829F01277D7CF7002C03F2 /* APIListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIListResponse.swift; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9415B425EECD340029E28F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				8FC885F027A89A360071AF80 /* MainView.swift */,
 				8FC885F227A89A3C0071AF80 /* MainViewModel.swift */,
 				FF9415CA25EED1360029E28F /* MainViewController.swift */,
+				8FC8860227A984240071AF80 /* GifTableViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				8FC885F127A89A360071AF80 /* MainView.swift in Sources */,
 				8FC885F827A8E51A0071AF80 /* RenderViewProtocol.swift in Sources */,
 				FF9415E225EEDC3A0029E28F /* SearchResult.swift in Sources */,
+				8FC8860327A984240071AF80 /* GifTableViewCell.swift in Sources */,
 				FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */,
 				FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */,
 				FF9415D225EED25A0029E28F /* DetailViewController.swift in Sources */,

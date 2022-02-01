@@ -9,23 +9,9 @@ import UIKit
 
 class MainView: UIView {
     
-    private var layout: UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        // make sure that there is a slightly larger gap at the top of each row
-        layout.sectionInset = UIEdgeInsets(top: 16, left: 8, bottom: 8, right: 8)
-        layout.itemSize = CGSize(width: 60, height: 60)
-        layout.scrollDirection = .vertical
-        return layout
-    }
-    
-    private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(
-            frame: .zero,
-            collectionViewLayout: layout
-        )
-        collectionView.backgroundColor = .clear
-        collectionView.keyboardDismissMode = .onDrag
-        return collectionView
+    let tableView: UITableView = {
+        let view = UITableView(frame: .zero)
+        return view
     }()
     
     override init(frame: CGRect = .zero) {
@@ -42,11 +28,11 @@ class MainView: UIView {
 extension MainView: RenderViewProtocol {
     
     func buildViewHierarchy() {
-        addSubview(collectionView)
+        addSubview(tableView)
     }
     
     func setupConstraints() {
-        collectionView.snp.makeConstraints {
+        tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }

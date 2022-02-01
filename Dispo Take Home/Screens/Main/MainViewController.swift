@@ -2,12 +2,11 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var uiController: MainView
+    var uiController = MainView()
     var viewModel: MainViewModel
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
-        uiController = MainView()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,6 +21,21 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.titleView = searchBar
+        setupTableView()
+        viewModel.getData()
+        viewModel.dataFound = { [weak self] in
+            self?.refreshData()
+        }
+    }
+    
+    private func setupTableView() {
+        uiController.tableView.delegate = self
+        uiController.tableView.dataSource = self
+        uiController.tableView.register(GifTableViewCell.self, forCellReuseIdentifier: GifTableViewCell.reuseIdentifier)
+    }
+    
+    func refreshData() {
+        uiController.tableView.reloadData()
     }
     
     private lazy var searchBar: UISearchBar = {
@@ -41,23 +55,29 @@ extension MainViewController: UISearchBarDelegate {
     }
 }
 
-//MARK: UICollectionViewDelegate
+//MARK: UITableViewDelegate
 
-extension MainViewController: UICollectionViewDelegate {
+extension MainViewController: UITableViewDelegate {
     
 }
 
-//MARK: UICollectionViewDataSource
+//MARK: UITableViewDataSource
 
-extension MainViewController: UICollectionViewDataSource {
+extension MainViewController: UITableViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.gifs.count
     }
     
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GifTableViewCell.reuseIdentifier, for: indexPath) as? GifTableViewCell else {
+            fatalError("Failed to dequeue ImageTableViewCell")
+        }
+        cell.setup(with: GifTableViewCellViewModel(gif: viewModel.gifs[indexPath.row]))
+        return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return viewModel.CELL_HEIGHT
+    }
 }
